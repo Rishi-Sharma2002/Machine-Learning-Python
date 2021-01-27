@@ -1,40 +1,36 @@
-#IMPORTING THE LIBRARIES
-import os
+#Importing the libraries
 import numpy as np
 import pandas as pd
-from sklearn.impute import SimpleImputer as si 
+#Taking Care of missing data
+from sklearn.impute import SimpleImputer as si
+# Doing OneHotEncoding
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import LabelEncoder
 
-def main():
-# Reading the dataset
-  dataset = pd.read_csv("Data.csv")
-  x = dataset.iloc[:,:-1].values
-  y = dataset.iloc[:, -1].values
-  print(x)
-  print(y)
-
-# Compling the missing values
-  impute = si(missing_values=np.nan, strategy='mean')
-  x[:, 1:3] = impute.fit_transform(x[:, 1:3])
-
-  os.system("clear")
-  print(x)
-  Encoder(x, y)
-
-#Encoding the values
-def Encoder(x, y):
-  os.system("clear")
-  ct = ColumnTransformer(transformers=[("encoder", OneHotEncoder(), [0])], remainder="passthrough")
-  x = np.array(ct.fit_tranform(x))
-  le = LabelEncoder()
-  y = le.fit_transform(y)
-  print(x)
-  print(y)
-  
+def encoder(x, y):
+    ct = ColumnTransformer(transformers=[
+        ('encoder', OneHotEncoder(), [0])], remainder='passthrough')
+    x = np.array(ct.fit_transform(x))
+    print(x)
+    le = LabelEncoder()
+    y = le.fit_transform(y)
+    print(y)
 
 
-if __name__ == "__main__":
-  main()
+def missing_data(x, y):
+    imputer = si(missing_values=np.nan, strategy="mean")
+    x[:, 1:3] = imputer.fit_transform(x[:, 1:3])
+    print(x)
+    encoder(x, y)
 
+
+
+def read_data():
+    dataset = pd.read_csv("Data.csv")
+    x = dataset.iloc[:, :-1].values
+    y = dataset.iloc[:, -1].values
+    missing_data(x, y)
+
+if __name__=="__main__":
+    read_data()

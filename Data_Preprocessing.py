@@ -4,15 +4,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.impute import SimpleImputer as si
-from sklearn.compose import ColumnTransformer 
-from sklearn.preprocessing import OneHotEncoder 
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import LabelEncoder
 
 def encoding(x, y):
   os.system("clear")
   ct = ColumnTransformer(transformers=[
   ('encoder', OneHotEncoder(), [0])], remainder='passthrough')
-  
+
   x = np.array(ct.fit_transform(x))
   #print(x)
 
@@ -23,7 +23,7 @@ def encoding(x, y):
 def main():
     os.system("clear")
     dataset = pd.read_csv("Data.csv")
-    
+
     x = dataset.iloc[:, :-1].values
     y = dataset.iloc[:, -1].values
     print(x)
@@ -33,7 +33,7 @@ def main():
     x[:, 1:3]=imputer.fit_transform(x[:, 1:3])
     os.system("clear")
     print(x)
-    encoding(x, y)
+    #encoding(x, y)
 main()
 
 
