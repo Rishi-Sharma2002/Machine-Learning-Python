@@ -40,7 +40,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random
 #Using Linear Regression
 from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
-regressor.fit()
+regressor.fit(x_train, y_train)
 
 #Plotting the training set Graph
 import matplotlib.pyplot as plt
@@ -51,3 +51,10 @@ plt.xlabel("Year of Experience")
 plt.ylabel("Salary")
 plt.show()
 
+#Plotting the test Set Graph
+plt.scatter(x_test, y_test, color='red')
+plt.plot(x_train, regressor.predict(x_train), color='green')
+plt.title("Test Set")
+plt.xlabel("Year of Experience")
+plt.ylabel("Salary")
+plt.show()
