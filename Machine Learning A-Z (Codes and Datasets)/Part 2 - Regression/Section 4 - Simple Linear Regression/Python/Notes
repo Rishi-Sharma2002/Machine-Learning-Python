@@ -1,0 +1,11 @@
+What is Linear Regression?
+Linear Regression:- It is a use to show predict relationship between 2 or more
+                    factors. One is dependent and one is independent variable.
+
+                    Equation representing Linear:
+                    y = a1x + a0(which is similar to y=mx+c)
+                    therefore it show representation in Linear Form.
+                    where y is dependent variable and x is independent and
+                    a1, a0 are the coefficient.
+
+                    Example for deep understanding of Simple Linear Regression:-
