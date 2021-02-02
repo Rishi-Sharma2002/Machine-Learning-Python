@@ -26,5 +26,20 @@
 # #plt.plot(x_train, regressor.fit(x_train), color = 'blue')
 # plt.title('Training Set')
 # plt.show()
+import numpy as np
+import pandas as pd
+
+dataset = pd.read_csv("Salary_Data.csv")
+x = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, -1].values
+
+#Splitting the dataset into training set and test set
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state=1)
+
+#Using Linear Regression
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+regressor.fit()
 
 
