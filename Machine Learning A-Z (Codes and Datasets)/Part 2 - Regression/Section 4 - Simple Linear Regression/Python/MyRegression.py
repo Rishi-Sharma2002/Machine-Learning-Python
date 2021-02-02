@@ -42,4 +42,12 @@ from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit()
 
+#Plotting the training set Graph
+import matplotlib.pyplot as plt
+plt.scatter(x_train, y_train, color='red')
+plt.plot(x_train, regressor.predict(x_train), color = 'blue')
+plt.title("Training Set")
+plt.xlabel("Year of Experience")
+plt.ylabel("Salary")
+plt.show()
 
