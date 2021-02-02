@@ -9,3 +9,9 @@ Linear Regression:- It is a use to show predict relationship between 2 or more
                     a1, a0 are the coefficient.
 
                     Example for deep understanding of Simple Linear Regression:-
+                    Suppose if we want to find the total profit a company made
+                    during the whole year.
+                    To do so we need to find expenses and weight of expensis
+                    like some expenses make more drastic effect in the total
+                    profit some not, and sub profit during the project.
+                    Here the sub project is 
