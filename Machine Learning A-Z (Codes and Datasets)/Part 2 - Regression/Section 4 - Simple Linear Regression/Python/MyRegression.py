@@ -38,3 +38,18 @@ from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.8, random_state=1)
 
 #Using Regression
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+regressor.fit(x_train, y_train)
+
+#using Graphical representation
+import matplotlib.pyplot as plt
+plt.scatter(x_train, y_train, color="red")
+plt.plot(x_train, regressor.predict(x_train), color="green")
+plt.title("Training Set Graph")
+plt.xlabel("Years of experience")
+plt.ylabel("Salary")
+plt.show()
+
+
+
